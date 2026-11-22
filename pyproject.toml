@@ -18,8 +18,14 @@ dependencies = [
     "clip",
 ]
 
+[build-system]
+requires = ["uv_build>=0.9,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = ""
+
 [tool.uv]
-package = false
 environments = ["sys_platform == 'linux'"]
 # Newer versions only add warnings (matplotlib 3.6 with pyparsing 3.3, the gym notice banner).
 constraint-dependencies = ["pyparsing<3.3", "gym-notices<0.1"]

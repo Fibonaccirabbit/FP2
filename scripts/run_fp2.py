@@ -1,10 +1,10 @@
 """FP2 on one D4MORL task (2 objectives, or 3 for MO-Hopper-v3): three-stage training and evaluation.
 
     D=MO-Hopper-v2_50000_expert_uniform
-    python run_fp2.py --dataset $D --split shattered --stage 1    # FP2-Pre  -> run fp2_s0
-    python run_fp2.py --dataset $D --split shattered --stage 2    # FP2-Mid  -> run fp2_s0_mid (from fp2_s0/_best)
-    python run_fp2.py --dataset $D --split shattered --stage 3    # FP2-Post -> run fp2_s0_ft  (from fp2_s0_mid/_best)
-    python run_fp2.py --dataset $D --split shattered --mode eval --load_model fp2_s0_mid/_best
+    python scripts/run_fp2.py --dataset $D --split shattered --stage 1    # FP2-Pre  -> run fp2_s0
+    python scripts/run_fp2.py --dataset $D --split shattered --stage 2    # FP2-Mid  -> run fp2_s0_mid (from fp2_s0/_best)
+    python scripts/run_fp2.py --dataset $D --split shattered --stage 3    # FP2-Post -> run fp2_s0_ft  (from fp2_s0_mid/_best)
+    python scripts/run_fp2.py --dataset $D --split shattered --mode eval --load_model fp2_s0_mid/_best
 
 Runs are written to results/fp2/<split>/<dataset>/<run>/.
 """

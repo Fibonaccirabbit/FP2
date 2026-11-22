@@ -8,6 +8,6 @@ cd "$(dirname "$0")/.."
 source scripts/env.sh
 SPLIT=${2:?split: shattered | narrow | full}
 ARGS=(--dataset "${1:?dataset}" --split "$SPLIT" --device "${3:-cuda:0}" --name "${4:-fp2}" --seed "${5:-0}" "${@:6}")
-python -u run_fp2.py --stage 1 "${ARGS[@]}"
-python -u run_fp2.py --stage 2 "${ARGS[@]}"
-if [ "$SPLIT" != "full" ]; then python -u run_fp2.py --stage 3 "${ARGS[@]}"; fi
+python -u scripts/run_fp2.py --stage 1 "${ARGS[@]}"
+python -u scripts/run_fp2.py --stage 2 "${ARGS[@]}"
+if [ "$SPLIT" != "full" ]; then python -u scripts/run_fp2.py --stage 3 "${ARGS[@]}"; fi

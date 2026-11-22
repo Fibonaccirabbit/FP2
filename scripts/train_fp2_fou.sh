@@ -8,4 +8,4 @@ set -e
 cd "$(dirname "$0")/.."
 source scripts/env.sh
 ARGS=(--held_out_env "${1:?held-out environment}" --device "${2:-cuda:0}" --quality "${3:-expert}" --seed "${4:-0}" "${@:5}")
-for STAGE in 1 2 3 4; do python -u run_fp2_fou.py --stage $STAGE "${ARGS[@]}"; done
+for STAGE in 1 2 3 4; do python -u scripts/run_fp2_fou.py --stage $STAGE "${ARGS[@]}"; done

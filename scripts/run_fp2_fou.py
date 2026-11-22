@@ -1,10 +1,10 @@
 """FP2-Fou: multi-task FP2 on the MO-MuJoCo tasks with leave-one-task-out transfer.
 
-    python run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 1   # pre-train on the other five tasks
-    python run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 2   # mid-train on their top-two fronts
-    python run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 3   # post-train on the held-out task (1K steps)
-    python run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 4   # from-scratch baseline on the held-out task
-    python run_fp2_fou.py --held_out_env MO-Swimmer-v2 --mode eval --load_model fp2_s0_ft/_best
+    python scripts/run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 1   # pre-train on the other five tasks
+    python scripts/run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 2   # mid-train on their top-two fronts
+    python scripts/run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 3   # post-train on the held-out task (1K steps)
+    python scripts/run_fp2_fou.py --held_out_env MO-Swimmer-v2 --stage 4   # from-scratch baseline on the held-out task
+    python scripts/run_fp2_fou.py --held_out_env MO-Swimmer-v2 --mode eval --load_model fp2_s0_ft/_best
 
 All tasks are zero-padded to the largest state / action / objective dimensions (27 / 8 / 3). During Stages 1-2
 the held-out task is evaluated, which also selects the checkpoint kept for the next stage.

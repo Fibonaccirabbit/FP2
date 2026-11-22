@@ -1,8 +1,8 @@
 """Check the D4MORL datasets and precompute the text embeddings of their preference prompts (training data and
 evaluation grids).
 
-    python prepare_data.py                       # every dataset found under data/
-    python prepare_data.py --datasets MO-Hopper-v2_50000_expert_uniform MO-Swimmer-v2_50000_expert_uniform
+    python scripts/prepare_data.py                       # every dataset found under data/
+    python scripts/prepare_data.py --datasets MO-Hopper-v2_50000_expert_uniform MO-Swimmer-v2_50000_expert_uniform
 
 Optional: the embeddings are otherwise computed on first use. Afterwards, training and evaluation need neither the
 text models nor network access.

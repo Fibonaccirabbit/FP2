@@ -8,5 +8,5 @@ set -e
 cd "$(dirname "$0")/.."
 source scripts/env.sh
 RUN=${3:?run}; CKPT=${4:-_best}
-python -u run_fp2.py --mode eval --dataset "${1:?dataset}" --split "${2:?split}" --load_model "$RUN/$CKPT" \
+python -u scripts/run_fp2.py --mode eval --dataset "${1:?dataset}" --split "${2:?split}" --load_model "$RUN/$CKPT" \
   --eval_prefs front --eval_name "test$CKPT" --device "${5:-cuda:0}" "${@:6}"

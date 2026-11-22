@@ -52,7 +52,7 @@ data
 then check them and cache the text embeddings of all preference prompts:
 
 ```bash
-python prepare_data.py
+python scripts/prepare_data.py
 ```
 
 ## Training
@@ -64,15 +64,15 @@ from pre- and mid-training: `shattered` (interior regions), `narrow` (both extre
 
 ```bash
 # Stage 1: pre-training on all retained trajectories
-python run_fp2.py --dataset MO-Hopper-v2_50000_expert_uniform --split shattered --stage 1
+python scripts/run_fp2.py --dataset MO-Hopper-v2_50000_expert_uniform --split shattered --stage 1
 # Stage 2: mid-training on the top-two Pareto fronts
-python run_fp2.py --dataset MO-Hopper-v2_50000_expert_uniform --split shattered --stage 2
+python scripts/run_fp2.py --dataset MO-Hopper-v2_50000_expert_uniform --split shattered --stage 2
 # Stage 3: post-training on the Pareto front of the held-out preferences
-python run_fp2.py --dataset MO-Hopper-v2_50000_expert_uniform --split shattered --stage 3
+python scripts/run_fp2.py --dataset MO-Hopper-v2_50000_expert_uniform --split shattered --stage 3
 ```
 
 or all three at once with `bash scripts/train_fp2.sh <dataset> <split>`. The three runs are saved to
-`results/fp2/<split>/<dataset>/` as `fp2_s0`, `fp2_s0_mid` and `fp2_s0_ft`. The settings of each stage are in [run_fp2.py](run_fp2.py#L24-L38) and can be
+`results/fp2/<split>/<dataset>/` as `fp2_s0`, `fp2_s0_mid` and `fp2_s0_ft`. The settings of each stage are in [scripts/run_fp2.py](scripts/run_fp2.py#L24-L38) and can be
 overridden with flags such as `--lr` or `--n_gradient_steps`.
 
 For cross-task transfer, FP2-Fou is pre- and mid-trained on five tasks and post-trained on the held-out sixth:
