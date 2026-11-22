@@ -1,0 +1,31 @@
+[project]
+name = "fp2"
+version = "1.0.0"
+description = "FP2: Foundation Pareto Flow Policy for Multi-Objective Reinforcement Learning"
+readme = "README.md"
+license = "MIT"
+requires-python = "==3.9.*"
+dependencies = [
+    "torch==2.2.2",
+    "torchvision==0.17.2",
+    "numpy==1.23.3",
+    "matplotlib==3.6.1",
+    "gym==0.23.1",
+    "mujoco-py==2.1.2.14",  # needs MuJoCo 2.1.0 in ~/.mujoco/mujoco210
+    "cython<3",             # mujoco-py compiles its bindings on first import
+    "sentence-transformers==5.1.0",
+    "transformers==4.55.4",
+    "clip",
+]
+
+[tool.uv]
+package = false
+environments = ["sys_platform == 'linux'"]
+# Newer versions only add warnings (matplotlib 3.6 with pyparsing 3.3, the gym notice banner).
+constraint-dependencies = ["pyparsing<3.3", "gym-notices<0.1"]
+
+[tool.uv.sources]
+clip = { url = "https://github.com/openai/CLIP/archive/dcba3cb2e2827b402d2701e7e1c7d9fed8a20ef1.zip" }
+
+[tool.uv.extra-build-dependencies]
+clip = ["setuptools<81"]  # CLIP's setup.py imports pkg_resources
